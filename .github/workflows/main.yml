@@ -10,7 +10,13 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-       - name: Print a Welcome Message.
+       - name: Print a Welcome Message
          run: echo "Welcome to our GitHub Actions Workflow!" # I use 'run:.' to run this script on Shell Script 
+         
+       - name: Checkout repository
+         uses: actions/checkout@v6.0.1
+         
+       - name: List repository file
+         run: ls -la
      
      
