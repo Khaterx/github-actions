@@ -1,0 +1,24 @@
+name: Push PR Workflow
+
+on:
+    push:
+        branches:
+            - main
+            - "release/**"
+        paths:
+            - "src/**"
+            - "docs/**"
+    pull_request:
+        branches:
+            - main
+            - "release/**"
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6.0.1
+
+            - name: Run tests
+              run: npm test
